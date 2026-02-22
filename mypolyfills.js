@@ -11,7 +11,7 @@ Array.prototype.forMap=function(callbackfn)
 
     for(let i=0;i<this.length;i++)
     {
-        result.push(callbackfn(this[i],i,this,))
+        result.push(callbackfn(this[i],i,this))
     }
 
     return result
@@ -39,6 +39,24 @@ return accumulator
     
 }
 
+
+Array.prototype.myfilter=function(callbackfn)
+{
+    const result=[]
+
+    for(let i=0; i<this.length; i++)
+    {
+        const isTrue=callbackfn(this[i],i,this)
+        if(isTrue){
+            result.push(this[i])
+        }
+    }
+    return result
+}
+
+
+
+
 // test cases
 const arr=[1,2,3,4,5]
 arr.myForEach((element,index,array)=>{
@@ -55,6 +73,10 @@ const sum=arr.myReduce((accumulator,currentValue)=>{
 },0)
 console.log(sum)
 
+const filteredArr=arr.myfilter((element)=>{
+    return element%2===0
+})
+console.log(filteredArr)
 
 
 
