@@ -39,6 +39,22 @@ return accumulator
     
 }
 
+// test cases
+const arr=[1,2,3,4,5]
+arr.myForEach((element,index,array)=>{
+    console.log(`Element: ${element}, Index: ${index}, Array: ${array}`)
+})
+
+const mappedArr=arr.forMap((element)=>{
+    return element*2
+})
+console.log(mappedArr)
+
+const sum=arr.myReduce((accumulator,currentValue)=>{
+    return accumulator+currentValue
+},0)
+console.log(sum)
+
 
 
 
